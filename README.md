@@ -100,3 +100,15 @@ Finish time:12pm
 
 Actual time needed to complete: 1hour
  main
+  
+  # lab3
+ 
+## Number and name of feature: Feature #1: Display a Modal
+
+Estimate of time needed to complete:3hours
+
+Start time: 2pm
+
+Finish time: 12am
+
+Actual time needed to complete: 5hours
