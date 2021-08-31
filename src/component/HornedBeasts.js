@@ -2,8 +2,8 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 
 class HornedBeasts extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       Votes: 0,
     };
@@ -12,6 +12,7 @@ class HornedBeasts extends React.Component {
     this.setState({
       Votes: this.state.Votes + 1,
     });
+    this.props.handleClose(this.props.title,this.props.description,this.props.image_url);
   };
 
   render() {
@@ -20,7 +21,7 @@ class HornedBeasts extends React.Component {
         <Card style={{ width: "20rem" }}>
           <Card.Img
             variant="top"
-            src={this.props.imagurl}
+            src={this.props.image_url}
             onClick={this.increaseHorneVotes}
           />
           <Card.Body>
