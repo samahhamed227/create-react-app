@@ -4,7 +4,8 @@ import Main from "./component/Main";
 import Footer from "./component/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SelectedBeast from "./component/SelectedBeast";
-import data from './assets/data.json';
+import data from "./assets/data.json";
+import Forme from "./component/SelectForm";
 
 class App extends React.Component {
   constructor(props) {
@@ -20,17 +21,33 @@ class App extends React.Component {
   handleClose = (title, description, image_url) => {
     this.setState({
       show: !this.state.show,
-
       title: title,
       description: description,
       image_url: image_url,
     });
   };
+
+  filtered = (event) => {
+    let newData = data.filter((i) => {
+      if (event === "All") {
+        return true;
+      } else {
+        return JSON.stringify(i.horns) === event;
+      }
+    });
+    this.setState({
+      data: newData,
+    });
+    console.log(this.state.data);
+  };
+
+
   render() {
     return (
       <div>
         <Header />
-        <Main  bests={data} handleClose={this.handleClose} />
+        <Forme  filtered={this.filtered} />
+        <Main bests={data} handleClose={this.handleClose} />
         <Footer />
         <SelectedBeast
           show={this.state.show}
